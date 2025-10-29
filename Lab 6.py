@@ -59,7 +59,7 @@ print(high_income_count)
 high_income_economy = pd.crosstab(df["Region"],df["High Income Economy"])
 print(high_income_economy)
 
-# There 17 high income economy in Americas, 14 in Asia, 31 in Europe and 4 in Oceania
+# There is 17 high income economy in Americas, 14 in Asia, 31 in Europe and 4 in Oceania
 
 # 9)
 
@@ -119,6 +119,7 @@ plt.show()
 # 4)
 
 
+
 # 5)
 
 # Comparing Female Tertiary Education and Female Life Expectancy by region
@@ -147,7 +148,7 @@ plt.show()
 
 # Answer: By explore some female life expectancy relationship with some of the other numerical feature, 
 #         we see that for male life expectancy, 
-#         these relationshsip are the same for both, which is a positive relationship.
+#         these relationshsip are the same for both.
 
 # Question 1: Does GNI per capita relate to Internet use?
 
