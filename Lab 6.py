@@ -2,13 +2,12 @@
 
 # 1) 
 
-# Question 1: 
-# Question 2:
-# Question 3:
+# Question 1: How does the population size vary by region?
+# Question 2: How doesn women represetation in parliament vary by subregion?
+# Question 3: Is there a association between GNI per capita and the number of physicians?
 
 # 2) 
 
-import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -146,9 +145,8 @@ sns.relplot(data = df, x= "Life expectancy, male", y = "Internet use", hue = "Re
 plt.title("Internet use vs Male Life Expectancy by region")
 plt.show()
 
-# Answer: By explore some female life expectancy relationship with some of the other numerical feature, 
-#         we see that for male life expectancy, 
-#         these relationshsip are the same for both.
+# Answer: By exploring some female life expectancy relationship with some of the other numerical feature, 
+#         we see that for male life expectancy, these relationshsip are the same for both.
 
 # Question 1: Does GNI per capita relate to Internet use?
 
