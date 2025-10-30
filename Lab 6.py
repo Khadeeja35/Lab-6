@@ -1,9 +1,11 @@
-#                                           PART 3
+#   "Khadeeja Bibi and Dorcas Bola"
+
+#                                        PART 3
 
 # 1) 
 
 # Question 1: How does the population size vary by region?
-# Question 2: How doesn women represetation in parliament vary by subregion?
+# Question 2: How does women represetation in parliament vary by subregion?
 # Question 3: Is there a association between GNI per capita and the number of physicians?
 
 # 2) 
@@ -24,6 +26,8 @@ df.info()
 
 df.nunique()
 print(df.nunique())
+
+# Answer: 
 
 # 5)
 
@@ -81,10 +85,12 @@ print(countries)
 
 # 1) 
 
+df["GNI per capita"] = df["GNI"] / df["Population"]
 sns.relplot(data = df, x= "Life expectancy, female", y = "GNI per capita", kind = "scatter", height = 5, aspect = 1.5)
 plt.title ("Association between GNI per capita and Female Life Expectancy")
 plt.show()
 
+df["GNI per capita"] = df["GNI"] / df["Population"]
 sns.relplot(data = df, x= "Life expectancy, male", y = "GNI per capita", kind = "scatter", height = 5, aspect = 1.5)
 plt.title ("Association between GNI per capita and Male Life Expectancy")
 plt.show()
@@ -96,10 +102,12 @@ plt.show()
 
 # 2)
 
+df["GNI per capita"] = df["GNI"] / df["Population"]
 sns.relplot(data = df, x= "Life expectancy, female", y = "GNI per capita", hue = "Region", kind = "scatter", height = 5, aspect = 1.5)
 plt.title("GNI per capita vs Female Life Expectancy by Region")
 plt.show()
 
+df["GNI per capita"] = df["GNI"] / df["Population"]
 sns.relplot(data = df, x= "Life expectancy, male", y = "GNI per capita", hue = "Region", kind = "scatter", height = 5, aspect = 1.5)
 plt.title("GNI per capita vs Male Life Expectancy by Region")
 plt.show()
@@ -148,33 +156,78 @@ plt.show()
 # Answer: By exploring some female life expectancy relationship with some of the other numerical feature, 
 #         we see that for male life expectancy, these relationshsip are the same for both.
 
-# Question 1: Does GNI per capita relate to Internet use?
+# Question 1: How does internet use vary across regions?
 
-sns.relplot(data = df, x= "GNI per capita", y = "Internet use", hue = "Region", kind = "scatter", height = 5, aspect = 1.5)
-plt.title("GNI per capita vs Internet Use by Region")
+sns.barplot(data = df, x= "Region", y = "Internet use",)
+plt.title("Internet use by Region")
 plt.show()
 
-# Question 2: Is there a relationship between GNI per capita and the number of physicians?
+# Answer: Europe has the most internet users compared to Africa which has the less internet users.
 
-sns.relplot(data = df, x= "GNI per capita", y = "Physicians", hue = "Region", kind = "scatter", height = 5, aspect = 1.5)
-plt.title("GNI per capita vs Physicians by Region")
-plt.show()
+# Question 2: Which subregion has the most GNI per capita?
 
-# Question 3: How does women’s representation in parliament vary by subregion?
-
-sns.barplot(data = df, x = "Subregion", y = "Women in national parliament")
-plt.title("Women in National Parliament by Subregion")
+df["GNI per capita"] = df["GNI"] / df["Population"]
+sns.barplot(data = df, x= "Subregion", y = "GNI per capita")
+plt.title("GNI per capita by Subregion")
 plt.xticks(rotation=90)
 plt.show()
+
+# Answer: Western Europe and Northern America have the most GNI per capita.
+
+# Question 3: How does women’s representation in parliament vary by region?
+
+sns.barplot(data = df, x = "Region", y = "Women in national parliament")
+plt.title("Women in National Parliament by Region")
+plt.xticks(rotation=90)
+plt.show()
+
+# Answer: Regions like Europe and Americas have more women in parliament comapred to 
+#         Oceania who have few women int heir parliament.
 
 # Question 4: Which region has the most international tourism?
 
 sns.barplot(data = df, x= "Region", y = "International tourism")
-plt.title("GNI per capita vs International Tourism by Region")
+plt.title("International Tourism by Region")
 plt.show()
 
-# Question 5 : How does the population size vary in region?
+# Answer: Europe has the highest level of international tourism.
+
+# Question 5 : How does the population size vary among regions?
     
 sns.barplot(data = df, x= "Region", y = "Population")
 plt.title("Population by Region")
 plt.show()
+
+# Answer: Asia is the region with the most population while Oceania with the less population.
+
+# 6)
+
+  # a)
+
+df["emission per capita"] = df["Greenhouse gas emissions"] / df["Population"]
+sns.relplot(data = df, x= "Internet use", y = "emission per capita", kind = "scatter", height = 5, aspect = 1.5)
+plt.title("Emission per capita vs Internet Use")
+plt.show()
+
+# Answer: There isn't a clear association between the internet use and emission per capita. 
+
+  # b) 
+
+df["emission per capita"] = df["Greenhouse gas emissions"] / df["Population"]
+high_emissions_countries = df[df["emission per capita"] > 0.03]
+print(high_emissions_countries)
+
+# Answer: The countries that have high gas emissions are Brunei Darussalam and Qatar both situated in the same region, Asia.
+
+  # c)
+
+# Answer: From b) we found out that Brunei Darussalam and Qatar were the region 
+#         that had high emissions. Since they are both in the same region, 
+#         there is no variation.
+
+  # d)
+
+# Answer: From PART 3 question 7) b), we found that there is 67 high income economies 
+#         and from PART 4 question 6) b), we found that there is only 2 countries that have high gas emissions. 
+#         Thus, no not all high income economies have high gas emissions. 
+#         However, both countries that have high gas emissions also have high income economies.
